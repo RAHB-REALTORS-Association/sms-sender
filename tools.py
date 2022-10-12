@@ -67,7 +67,7 @@ def send_messages(number_list, sid, token):
         sender_chars = [c for c in number_list[flag][0]]
         print(sender_chars)
         message = client.messages.create(
-            body=number_list[flag][5],
+            body=number_list[flag][2],
             from_=number_list[flag][0],
             to=number_list[flag][1]
         )
