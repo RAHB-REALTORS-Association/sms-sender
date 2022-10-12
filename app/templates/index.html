@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> First, some important stuff</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>This site is not related to nor supported or endorsed by Twilio Inc. in any way</li>
+                <li>This site just provides a simple interface for Twilio's SMS service</li>
+                <li>This site doesn't store your credentials in any form but it's still safer to use tokens. Please check <a href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for instructions on how to do it</li>
+                <li>The source code for this site is available on <a href="https://github.com/sbestetti/sms-sender" target="_blank">GitHub</a></li>
+                <li>Please drop me a message if you need help or if there's anything wrong with this site: <a href="mailto:justinh@rahb.ca">justinh@rahb.ca</a></li>
+            </ul>
+        </div>
+    </div>
+    <p>
+        Welcome to the Batch SMS Sender. This tool allows you to send bulk messages from a simple spreadsheet. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first time here and let's get
+        started!
+        <div id="upload_form" class="form-inline">
+            <form method="post" enctype="multipart/form-data">
+                    <div class="mt-15">
+                        <input type="text" class="form-control" placeholder="Twilio Account SID" aria-describedby="basic-addon1" name="sid" size="50">
+                    </div>
+                    <div class="mt-15">
+                        <input type="password" class="form-control" placeholder="Twilio Token" aria-describedby="basic-addon1" name="token" size="50">
+                    </div>
+                <div class="mt-15">
+                    <input type="file" name="file">
+                </div>
+                <div class="mt-15">
+                    <input type="submit" value="Send messages">
+                </div>
+            </form>
+        </div>
+    </p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Wrong numbers{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Incorrect numbers</h1>
+    </div>
+    <div class="well">
+        <p>
+            Some of the numbers on your list couldn't be found. Please check them to make sure they are on the correct format, with the Country Code and try again.
+        </p>
+    </div>
+    <div class="report">
+        <ul>
+            {% for number in number_list %}
+                <li>{{ number[1] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
