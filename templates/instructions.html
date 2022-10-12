@@ -57,8 +57,9 @@
             Now we'll use a spreadsheet software (like Excel) to create a list of contacts and messages that we'll use to send the SMS. I've done this example using Google Sheets but any software will do (Excel, Numbers, LibreOffice, etc):
             <ol>
                 <li>Open your spreadsheet software and start by entering your Twilio phone number on the first cell (A1).</li>
-                <li>On the next column (B1) you enter the destination phone number. Make sure to include country and area code.</li>
-                <li>On the third column (C1) you enter the message you want to send.</li>
+                <li>In the next column (B1) you enter the destination phone number. Make sure to include country and area code.</li>
+                <li>The next three columns (C,D,E) are for future use, leave these empty.</li>
+                <li>In the sixth column (F1) you enter the message you want to send.</li>
             </ol>
             That's it! You can copy and paste the message and Twilio phone number to all other rows if they are the same and just fill the B column with your destination phone numbers.
         </div>
@@ -75,7 +76,7 @@
         <ul>
             <li>On <strong>Google Sheets</strong> click on "File", "Download", "Comma-separated values (.csv, current sheet)</li>
             <li>On <strong>Excel</strong> </li> click on "File" and then in "Save as". On the "File Format" box select "Comma Separated Values (.csv)"
-            <li>On <strong>Numbers for Mac</strong>click on "File", "Export to", "CSV" and proceed to save the file</li>
+            <li>On <strong>Numbers for Mac</strong> click on "File", "Export to", "CSV" and proceed to save the file</li>
             <li>On <strong>OpenOffice</strong></li> click on "File", "Save as" and set "File type" as "Text CSV (.csv)"
         </ul>
         Once you have you file ready go back to our <a href="{{ url_for('index') }}">home page</a> and use the form at the bottom to upload your file and Twilio credentials. That's it! If everything is alright we'll start sending your messages and once we are done we'll show you a full report, so please be patient!
