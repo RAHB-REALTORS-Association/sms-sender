@@ -5,55 +5,9 @@
 {% block content %}
     <h1>Instructions</h1>
 
-    <h3>First things first <small>what is Twilio?</small></h3>
-    <p>
-        Twilio is a platform that offers telecom services in a way that is easy for developers to integrate with applications. These services include SMS, Whatsapp, Voice calls, etc.
-        What they <strong>don't</strong> offer is a simple interface for people who doesn't know coding to use their services. And that's where this tool comes in.
-        This tools uses your Twilio account to send SMS messages from a simple spreadsheet file. This guide will take you all the way from setting up your Twilio account to delivering your first message. Let's get started!
-    </p>
-
-    <div class="mt-50">
-        <h3>1 - Getting a Twilio account and credentials<small> go ahead, it's free and doesn't require a credit card</small></h3>
-        <p>
-            First thing you'll need to do is signup for a Twilio account. Head on over to <a href="https://www.twilio.com/try-twilio" target="_blank">Twilio's signup page</a>, fill the form and hit "Start your free trial". Once you finish setting up your account
-            you'll be taken to your dashboard. This is where you'll get your <strong>Account SID</strong> and <strong>Token</strong>, which we'll use to send your messages. Check the following screenshot: the red boxes show you where these fields are on your dashboard.
-            Notice that your Token won't be visible. Click on the button shown to display your password. Save both the Account SID and Token, as we'll use them shortly.
-        </p>
-        <a href="{{ url_for('static', filename='tutorial_001.png') }}">
-            <img class="media-object" src="{{ url_for('static', filename='tutorial_001.png') }}" alt="Where to get your credentials" width="80%" height="80%" style="vertical-align:middle;margin:50px 50px">
-        </a>
-    </div>
-
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <h4>A word about passwords and security</h4>
-        </div>
-        <div class="panel-body">
-            As stated above, this site doesn't store your credentials in any way. But I wouldn't ask you to just take my word for it. That's why I recommend that you use a <strong>Token</strong>
-            instead of your Twilio password. This might be a bit advanced for most of the users but if you have some understanding of API security, please follow <a href="https://www.twilio.com/docs/iam/access-tokens" target="_blank">this article</a> to create
-            a token. You can just use a token on the "Password" field instead of your Twilio password.
-        </div>
-    </div>
-
     <div class="media mt-50">
         <div class="media-body">
-            <h3 class="media-heading">2 - Getting a phone number</h3>
-            You'll probably need a phone number on your Twilio account in order to send your messages from. I say probably because there are ways of sending messages without a number. Click <a href="https://support.twilio.com/hc/en-us/articles/223181348-Alphanumeric-Sender-ID-for-Twilio-Programmable-SMS" target="_blank">here</a> to
-            read more about Alphanumeric Sender IDs. For now, let's stick with a regular number. On your Twilio Dashboard, click on the Hash symbol on the left side of the screen. If it's not visible, expand the menu by clicking on the "three dots" button at the bottom.
-        </div>
-        <div class="media-right media-middle">
-            <img class="media-object" src="{{ url_for('static', filename='tutorial_002.png') }}" alt="Getting a phone number">
-        </div>
-    </div>
-    <p>
-        On the "Active Numbers" screen, click on the blue "Buy a number" button on the top right corner. Select the country where you want your new number to be and make sure you check the box for "SMS", under <strong>Capabilites</strong>. This will ensure your new number can send SMS messages.
-        If you cannot find a number for your contry you can go with a US number as they have the best delivery rate anywhere in the world. Once this is done click on the red <strong>Search</strong> button. Pick a number for from the list and click on "Buy" on the right side. Review the charges
-        and confirm the purchase. Make note of the number as we'll need it when creating the document that will send your messages. That's all we need from Twilio right now. Next we are going to create the list of contacts to which we'll send the messages.
-    </p>
-
-    <div class="media mt-50">
-        <div class="media-body">
-            <h3 class="media-heading">3 - Setting up the list of contacts and message</h3>
+            <h3 class="media-heading">Setting up the list of contacts and message</h3>
             Now we'll use a spreadsheet software (like Excel) to create a list of contacts and messages that we'll use to send the SMS. I've done this example using Google Sheets but any software will do (Excel, Numbers, LibreOffice, etc):
             <ol>
                 <li>Open your spreadsheet software and start by entering your Twilio phone number on the first cell (A1).</li>
@@ -70,7 +24,7 @@
         </div>
     </div>
 
-    <h3>4 - Export the file and upload it to our website</h3>
+    <h3>Export the file and upload it to our website</h3>
     <p>
         Now you just need to save your spreadsheet on the format our site can use and upload it to us. How to do that might differ a bit from app to app:
         <ul>
