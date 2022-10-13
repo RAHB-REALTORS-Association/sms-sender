@@ -1,3 +1,4 @@
+import os
 # Flask config
 TESTING = False
 SECRET_KEY = os.environ.get('SECRET_KEY')
