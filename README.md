@@ -9,13 +9,13 @@ Bulk SMS Sender is a web-based app that uses a Twilio account to send SMS messag
 
 ## Usage
 The user saves the data on a CSV file with 3 columns and use a webform to update the CSV file with their Twilio credentials. The backend uses
-Twilio's Python SDK to send the messages and generate a delivery report. A deployed version can be found [here](https://twilio-app-23959-bp79h.ondigitalocean.app).
+Twilio's Python SDK to send the messages and generate a delivery report.
 
 ## Tech stack
-- Python 3.8
-- Flask 1.1.2
-- GUnicorn 20.0.4
-- Twilio Python Libraries 6.46.0
+- Python 3.10
+- Flask 2.2.2
+- GUnicorn 20.1.0
+- Twilio Python Libraries 7.14.2
 
 ## Deploying
 
