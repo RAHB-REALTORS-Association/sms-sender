@@ -1,3 +1,5 @@
+[![Python application](https://github.com/RAHB-REALTORS-Association/sms-sender/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/RAHB-REALTORS-Association/sms-sender/actions/workflows/python-app.yml)
+
 ***Notice: this project is not supported or endorsed by Twilio Inc. in any way***
 
 # Bulk SMS Sender
