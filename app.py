@@ -4,7 +4,8 @@ from datetime import datetime
 from flask import Flask, request, flash, redirect, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
-import tools, settings
+import tools
+import settings
 
 application = Flask(__name__)
 application.config.from_object("settings")
