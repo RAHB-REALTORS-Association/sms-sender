@@ -1,0 +1,11 @@
+spec:
+  name: twilio-app
+  services:
+  - name: sms-sender
+    git:
+      branch: master
+      repo_clone_url: https://github.com/RAHB-REALTORS-Association/sms-sender.git
+    envs:
+    - key: SECRET_KEY
+      value: "somesupersecretkey"
+      type: SECRET
