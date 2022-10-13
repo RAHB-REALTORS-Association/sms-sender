@@ -18,6 +18,9 @@ Twilio's Python SDK to send the messages and generate a delivery report. A deplo
 - Twilio Python Libraries 6.46.0
 
 ## Deploying
+
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/RAHB-REALTORS-Association/sms-sender/tree/master)
+
 Review settings.py before deployment, especially the following settings:
 - Line 2: Testing
 - Line 3: Flask secret. Generate a random Secret on deployment
