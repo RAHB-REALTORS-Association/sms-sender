@@ -13,4 +13,4 @@ requests==2.30.0
 six==1.16.0
 twilio==8.2.0
 urllib3==2.0.2
-Werkzeug==2.3.2
+Werkzeug==2.3.4
