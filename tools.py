@@ -1,12 +1,17 @@
 import csv
 import os
 import chardet
+import logging
 from datetime import datetime
 
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException, TwilioException
 
 import settings
+
+# Setup logging
+logging.basicConfig(filename=settings.LOG_FILE, level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 def allowed_file(filename):
     return (
@@ -20,7 +25,7 @@ def valid_credentials(sid, token):
     try:
         client.messages.list(limit=1)
     except TwilioException as e:
-        print(f"Error occurred in valid_credentials: {e}")
+        logging.error(f"Error occurred in valid_credentials: {e}")
         return False
     return True
 
@@ -31,7 +36,7 @@ def check_numbers(numbers, sid, token):
         try:
             client.lookups.phone_numbers(number[1]).fetch()
         except TwilioRestException as e:
-            print(f"Error occurred in check_numbers: {e}")
+            logging.error(f"Error occurred in check_numbers: {e}")
             numbers_not_found.append(number)
     return numbers_not_found
 
@@ -63,7 +68,7 @@ def send_messages(number_list, sid, token):
     while flag < len(number_list):
         try:
             sender_chars = [c for c in number_list[flag][0]]
-            print(sender_chars)
+            logging.info(f"Sending message to: {number_list[flag][1]}")
             message = client.messages.create(
                 body=number_list[flag][2],
                 from_=number_list[flag][0],
@@ -73,14 +78,14 @@ def send_messages(number_list, sid, token):
             number_list[flag].append(message.sid)
             flag += 1
         except TwilioRestException as e:
-            print(f"Error occurred in send_messages: {e}")
+            logging.error(f"Error occurred in send_messages: {e}")
             flag += 1  # Skip to the next number
     for item in number_list:
         try:
             current_message = client.messages.get(item[4]).fetch()
             item[3] = current_message.status
         except TwilioRestException as e:
-            print(f"Error occurred when fetching message status: {e}")
+            logging.error(f"Error occurred when fetching message status: {e}")
     with open(settings.LOG_FILE, "a") as log_file:
         log_string = f"{datetime.now()} - {len(number_list)} messages sent."
         log_file.write(f"\n{log_string}")
