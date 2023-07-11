@@ -8,14 +8,12 @@ from twilio.base.exceptions import TwilioRestException, TwilioException
 
 import settings
 
-
 def allowed_file(filename):
     return (
         "." in filename
         and filename.rsplit(".", 1)[1].lower()
         in settings.ALLOWED_EXTENSIONS
     )
-
 
 def valid_credentials(sid, token):
     client = Client(sid, token)
@@ -25,7 +23,6 @@ def valid_credentials(sid, token):
         print(f"Error occurred in valid_credentials: {e}")
         return False
     return True
-
 
 def check_numbers(numbers, sid, token):
     client = Client(sid, token)
@@ -37,7 +34,6 @@ def check_numbers(numbers, sid, token):
             print(f"Error occurred in check_numbers: {e}")
             numbers_not_found.append(number)
     return numbers_not_found
-
 
 def get_number_list(filename):
     number_list = list()
@@ -60,7 +56,6 @@ def get_number_list(filename):
             number_list.append(row)
     os.remove(file_path)
     return number_list
-
 
 def send_messages(number_list, sid, token):
     client = Client(sid, token)
@@ -87,10 +82,6 @@ def send_messages(number_list, sid, token):
         except TwilioRestException as e:
             print(f"Error occurred when fetching message status: {e}")
     with open(settings.LOG_FILE, "a") as log_file:
-        log_string = f"{datetime.now()} - {len(number_list)} messages sent."
-        log_file.write(f"\n{log_string}")
-    return number_list
-
         log_string = f"{datetime.now()} - {len(number_list)} messages sent."
         log_file.write(f"\n{log_string}")
     return number_list
