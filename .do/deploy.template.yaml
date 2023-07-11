@@ -9,4 +9,3 @@ spec:
     - key: SECRET_KEY
       value: "somesupersecretkey"
       type: SECRET
-    run_command: gunicorn -b :8080 app:app
