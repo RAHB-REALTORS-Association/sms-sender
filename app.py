@@ -7,26 +7,26 @@ from werkzeug.utils import secure_filename
 import tools
 import settings
 
-application = Flask(__name__)
-application.config.from_object("settings")
+app = Flask(__name__)
+app.config.from_object("settings")
 
 
-@application.route('/sitemap.xml')
+@app.route('/sitemap.xml')
 def static_from_root():
-    return send_from_directory(application.static_folder, request.path[1:])
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
-@application.route("/instructions")
+@app.route("/instructions")
 def instructions():
     return render_template("instructions.html")
 
 
-@application.route("/contact")
+@app.route("/contact")
 def contact():
     return render_template("contact.html")
 
 
-@application.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         if request.form["sid"] == "" or request.form["token"] == "":
@@ -53,7 +53,7 @@ def index():
             filename = secure_filename(file.filename)
             file.save(
                 os.path.join(
-                    application.config["UPLOAD_FOLDER"],
+                    app.config["UPLOAD_FOLDER"],
                     filename
                 )
             )
