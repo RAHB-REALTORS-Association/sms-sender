@@ -12,10 +12,10 @@ The user saves the data on a CSV file with 3 columns and use a webform to update
 Twilio's Python SDK to send the messages and generate a delivery report.
 
 ## Tech stack
-- Python 3.8 - 3.10
-- Flask 2.2.2
-- GUnicorn 20.1.0
-- Twilio Python Libraries 7.14.2
+- Python 3.9 - 3.11
+- Flask 2.2+
+- GUnicorn 20.1+
+- Twilio Python Libraries 7.14+
 
 ## Deploying
 
