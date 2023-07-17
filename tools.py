@@ -2,6 +2,7 @@ import csv
 import os
 import chardet
 import logging
+import requests
 from datetime import datetime
 
 from twilio.rest import Client
@@ -39,6 +40,22 @@ def check_numbers(numbers, sid, token):
             logging.error(f"Error occurred in check_numbers: {e}")
             numbers_not_found.append(number)
     return numbers_not_found
+
+def get_number_list_from_url(url):
+    # Use requests to fetch the CSV data from the URL
+    # Note: You'll need to install the requests library if it's not already installed
+    import requests
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an exception if the request was unsuccessful
+
+    # Convert the CSV data into a list of lists
+    import csv
+    from io import StringIO
+    csv_data = StringIO(response.text)
+    csv_reader = csv.reader(csv_data)
+    number_list = list(csv_reader)
+
+    return number_list
 
 def get_number_list(filename):
     number_list = list()
