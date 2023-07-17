@@ -1,3 +1,7 @@
+.navbar {
+  border-radius: 0 !important;
+}
+
 .mt-50 {
     margin-top: 50px !important;
   }
