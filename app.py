@@ -3,6 +3,7 @@ from datetime import datetime
 
 from flask import Flask, request, flash, redirect, render_template, send_from_directory
 from werkzeug.utils import secure_filename
+from urllib3 import urlparse
 
 import tools
 import settings
@@ -42,7 +43,7 @@ def index():
         
         csv_url = request.form.get("csv_url")
         if csv_url:
-            # Validate the CSV URL here, if necessary
+ 
 
             number_list = tools.get_number_list_from_url(csv_url)
         

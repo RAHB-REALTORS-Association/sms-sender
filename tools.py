@@ -7,6 +7,8 @@ from datetime import datetime
 
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException, TwilioException
+from urllib3 import urlparse
+from io import StringIO
 
 import settings
 
@@ -30,6 +32,31 @@ def valid_credentials(sid, token):
         return False
     return True
 
+def is_valid_url(url):
+    # Check if the URL has a valid format
+    try:
+        result = urlparse(url)
+        if not all([result.scheme, result.netloc]):
+            return False
+    except ValueError:
+        return False
+
+    # Check if the URL is accessible
+    try:
+        response = requests.head(url)
+        if response.status_code >= 400:
+            return False
+    except requests.RequestException:
+        return False
+
+    # Check if the response contains ASCII text
+    response = requests.get(url)
+    content_type = response.headers.get('Content-Type', '')
+    if 'text' not in content_type:
+        return False
+
+    return True
+
 def check_numbers(numbers, sid, token):
     client = Client(sid, token)
     numbers_not_found = list()
@@ -43,17 +70,17 @@ def check_numbers(numbers, sid, token):
 
 def get_number_list_from_url(url):
     # Use requests to fetch the CSV data from the URL
-    # Note: You'll need to install the requests library if it's not already installed
-    import requests
     response = requests.get(url)
     response.raise_for_status()  # Raise an exception if the request was unsuccessful
 
     # Convert the CSV data into a list of lists
-    import csv
-    from io import StringIO
     csv_data = StringIO(response.text)
-    csv_reader = csv.reader(csv_data)
-    number_list = list(csv_reader)
+    try:
+        csv_reader = csv.reader(csv_data)
+        number_list = list(csv_reader)
+    except csv.Error as e:
+        logging.error(f"Invalid CSV data: {e}")
+        raise ValueError("Invalid CSV data") from e
 
     return number_list
 
