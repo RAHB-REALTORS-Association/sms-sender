@@ -74,10 +74,11 @@ def get_number_list_from_url(url):
     response.raise_for_status()  # Raise an exception if the request was unsuccessful
 
     # Convert the CSV data into a list of lists
+    from io import StringIO
     csv_data = StringIO(response.text)
     try:
         csv_reader = csv.reader(csv_data)
-        number_list = list(csv_reader)
+        number_list = [row[:3] for row in csv_reader]  # Only include the first three columns
     except csv.Error as e:
         logging.error(f"Invalid CSV data: {e}")
         raise ValueError("Invalid CSV data") from e
@@ -101,8 +102,7 @@ def get_number_list(filename):
             mode="r",
             encoding=guessed_encoding["encoding"]) as csv_file:
         csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            number_list.append(row)
+        number_list = [row[:3] for row in csv_reader]  # Only include the first three columns
     os.remove(file_path)
     return number_list
 
