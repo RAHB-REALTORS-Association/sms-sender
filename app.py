@@ -33,17 +33,15 @@ def index():
             flash("Twilio ID and token required")
             return redirect(request.url)
 
-        sid = request.form["sid"]
-        token = request.form["token"]
+        sid = request.form.get("sid") or settings.TWILIO_SID
+        token = request.form.get("token") or settings.TWILIO_TOKEN
+        csv_url = request.form.get("csv_url") or settings.CSV_URL
 
         if not tools.valid_credentials(sid, token):
             flash("Invalid Twilio credentials. Please double check your Twilio account SID and token and try again")
             return redirect(request.url)
         
-        csv_url = request.form.get("csv_url")
         if csv_url:
- 
-
             number_list = tools.get_number_list_from_url(csv_url)
         
         else:
