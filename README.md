@@ -5,11 +5,13 @@
 # Bulk SMS Sender
 
 ## About
-Bulk SMS Sender is a web-based app that uses a Twilio account to send SMS messages in bulk from a CSV file.
+Bulk SMS Sender is a web-based app that uses a Twilio account to send SMS messages in bulk from a CSV file. The CSV file can be uploaded via a web form or fetched from a provided URL. 
 
 ## Usage
-The user saves the data on a CSV file with 3 columns and use a webform to update the CSV file with their Twilio credentials. The backend uses
-Twilio's Python SDK to send the messages and generate a delivery report.
+The user inputs their Twilio credentials and either uploads a CSV file or provides a CSV URL via a webform. The backend uses Twilio's Python SDK to send the messages and generate a delivery report.
+
+## Configurability
+The Twilio credentials and CSV URL can be preset using the following environment variables: `TWILIO_SID`, `TWILIO_TOKEN`, and `CSV_URL`. If these are set, their values will be used as defaults in the web form. 
 
 ## Tech stack
 - Python 3.9 - 3.11
@@ -25,7 +27,9 @@ Twilio's Python SDK to send the messages and generate a delivery report.
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RAHB-REALTORS-Association/sms-sender/tree/master)
 
-Review settings.py before deployment, especially the following settings:
+Review `settings.py` before deployment, especially the following settings:
 - Line 2: Testing
 - Line 3: Flask secret. Generate a random Secret on deployment
 - Line 6: Set the upload folder according to your OS
+
+Also remember to set the `TWILIO_SID`, `TWILIO_TOKEN`, and `CSV_URL` environment variables if you want to preset these values.
