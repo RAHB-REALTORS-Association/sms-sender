@@ -7,7 +7,7 @@ from datetime import datetime
 
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException, TwilioException
-from urllib3 import urlparse
+from urllib3.util import parse_url
 from io import StringIO
 
 import settings
@@ -35,7 +35,7 @@ def valid_credentials(sid, token):
 def is_valid_url(url):
     # Check if the URL has a valid format
     try:
-        result = urlparse(url)
+        result = parse_url(url)
         if not all([result.scheme, result.netloc]):
             return False
     except ValueError:
