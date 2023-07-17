@@ -3,7 +3,6 @@ from datetime import datetime
 
 from flask import Flask, request, flash, redirect, render_template, send_from_directory
 from werkzeug.utils import secure_filename
-from urllib3 import urlparse
 
 import tools
 import settings
