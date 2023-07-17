@@ -1,0 +1,6 @@
+{
+  "name": "Twilio SMS Sender App",
+  "description": "A Twilio Bulk SMS application written in Python Flask for deployment on PaaS.",
+  "repository": "https://github.com/RAHB-REALTORS-Association/sms-sender",
+  "logo": "https://github.com/RAHB-REALTORS-Association/sms-sender/blob/master/static/apple-touch-icon.png"
+}
