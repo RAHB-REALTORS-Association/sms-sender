@@ -5,8 +5,8 @@
 {% block content %}
     <h1>Instructions</h1>
 
-    <div class="media mt-50">
-        <div class="media-body">
+    <div class="row mt-50">
+        <div class="col-md-8">
             <h3 class="media-heading">Setting up the list of contacts and message</h3>
             Now we'll use a spreadsheet software (like Excel) to create a list of contacts and messages that we'll use to send the SMS. I've done this example using Google Sheets but any software will do (Excel, Numbers, LibreOffice, etc):
             <ol>
@@ -16,9 +16,9 @@
             </ol>
             That's it! You can copy and paste the message and Twilio phone number to all other rows if they are the same and just fill the B column with your destination phone numbers.
         </div>
-        <div class="media-right media-middle">
+        <div class="col-md-4">
             <a href="{{ url_for('static', filename='tutorial_003.png') }}">
-                <img class="media-object" src="{{ url_for('static', filename='tutorial_003.png') }}" alt="Sample sheet" style="vertical-align:middle;margin:50px 50px">
+                <img class="img-responsive" src="{{ url_for('static', filename='tutorial_003.png') }}" alt="Sample sheet" style="margin:50px 0">
             </a>
         </div>
     </div>
