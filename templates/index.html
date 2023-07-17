@@ -21,14 +21,14 @@
         started!
         <div id="upload_form" class="form-inline">
             <form method="post" enctype="multipart/form-data">
-                    <div class="mt-15">
-                        <input type="text" class="form-control" placeholder="Twilio Account SID" aria-describedby="basic-addon1" name="sid" size="50">
-                    </div>
-                    <div class="mt-15">
-                        <input type="password" class="form-control" placeholder="Twilio Token" aria-describedby="basic-addon1" name="token" size="50">
-                    </div>
                 <div class="mt-15">
-                    <input type="text" class="form-control" placeholder="CSV URL" aria-describedby="basic-addon1" name="csv_url" size="50">
+                    <input type="text" class="form-control" placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" aria-describedby="basic-addon1" name="sid" size="50">
+                </div>
+                <div class="mt-15">
+                    <input type="password" class="form-control" placeholder="{{ token_placeholder or 'Twilio Token' }}" aria-describedby="basic-addon1" name="token" size="50">
+                </div>
+                <div class="mt-15">
+                    <input type="text" class="form-control" placeholder="{{ csv_url_placeholder or 'CSV URL' }}" aria-describedby="basic-addon1" name="csv_url" size="50">
                 </div>                    
                 <div class="mt-15">
                     <input type="file" name="file">
