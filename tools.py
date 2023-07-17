@@ -2,10 +2,13 @@ import csv
 import os
 import chardet
 import logging
+import requests
 from datetime import datetime
 
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException, TwilioException
+from urllib3.util import parse_url
+from io import StringIO
 
 import settings
 
@@ -29,6 +32,31 @@ def valid_credentials(sid, token):
         return False
     return True
 
+def is_valid_url(url):
+    # Check if the URL has a valid format
+    try:
+        result = parse_url(url)
+        if not all([result.scheme, result.netloc]):
+            return False
+    except ValueError:
+        return False
+
+    # Check if the URL is accessible
+    try:
+        response = requests.head(url)
+        if response.status_code >= 400:
+            return False
+    except requests.RequestException:
+        return False
+
+    # Check if the response contains ASCII text
+    response = requests.get(url)
+    content_type = response.headers.get('Content-Type', '')
+    if 'text' not in content_type:
+        return False
+
+    return True
+
 def check_numbers(numbers, sid, token):
     client = Client(sid, token)
     numbers_not_found = list()
@@ -39,6 +67,23 @@ def check_numbers(numbers, sid, token):
             logging.error(f"Error occurred in check_numbers: {e}")
             numbers_not_found.append(number)
     return numbers_not_found
+
+def get_number_list_from_url(url):
+    # Use requests to fetch the CSV data from the URL
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an exception if the request was unsuccessful
+
+    # Convert the CSV data into a list of lists
+    from io import StringIO
+    csv_data = StringIO(response.text)
+    try:
+        csv_reader = csv.reader(csv_data)
+        number_list = [row[:3] for row in csv_reader]  # Only include the first three columns
+    except csv.Error as e:
+        logging.error(f"Invalid CSV data: {e}")
+        raise ValueError("Invalid CSV data") from e
+
+    return number_list
 
 def get_number_list(filename):
     number_list = list()
@@ -57,8 +102,7 @@ def get_number_list(filename):
             mode="r",
             encoding=guessed_encoding["encoding"]) as csv_file:
         csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            number_list.append(row)
+        number_list = [row[:3] for row in csv_reader]  # Only include the first three columns
     os.remove(file_path)
     return number_list
 
