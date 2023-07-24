@@ -16,7 +16,7 @@ The Twilio credentials and CSV URL can be preset using the following environment
 ## Tech stack
 - Python 3.9 - 3.11
 - Flask 2.3+
-- GUnicorn 20.1+
+- GUnicorn 21.2+
 - Twilio Python Libraries 8.5+
 
 ## Deploying
@@ -24,8 +24,6 @@ The Twilio credentials and CSV URL can be preset using the following environment
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/RAHB-REALTORS-Association/sms-sender/tree/master)
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RAHB-REALTORS-Association/sms-sender/tree/master)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRAHB-REALTORS-Association%2Fsms-sender%2F&env=SECRET_KEY&envDescription=Flask%20secret&project-name=twilio-app&repository-name=sms-sender)
 
 Review `settings.py` before deployment, especially the following settings:
 - Line 2: Testing
