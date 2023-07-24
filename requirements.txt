@@ -1,6 +1,6 @@
 certifi==2023.7.22
 chardet==5.1.0
-click==8.1.5
+click==8.1.6
 Flask==2.3.2
 gunicorn==21.2.0
 idna==3.4
