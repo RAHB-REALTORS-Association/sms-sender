@@ -2,7 +2,7 @@
 
 [![Continuous Integration](https://github.com/RAHB-REALTORS-Association/sms-sender/actions/workflows/dependabot.yml/badge.svg)](https://github.com/RAHB-REALTORS-Association/sms-sender/actions/workflows/dependabot.yml)
 
-***Notice: this project is not supported or endorsed by Twilio Inc. in any way ***🚨
+***🚨 Notice: this project is not supported or endorsed by Twilio Inc. in any way 🚨***
 
 ## 📖 Table of Contents
 - [ℹ️ About](#-about)
