@@ -1,19 +1,20 @@
-🚀 **Feature Request**
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
-**Description:**
-[Provide a clear and concise description of the new feature you'd like to see added.]
+---
 
-**Problem Statement:**
-[Explain the problem or need that this feature would address. Describe the context and why the feature would be beneficial.]
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**Proposed Solution:**
-[Offer your ideas on how this feature could be implemented or any suggestions on how it could work.]
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
 
-**Benefits:**
-[Highlight the potential benefits of adding this feature to the project.]
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
 
-**Additional Context:**
-[Include any additional information or context that might be relevant to the feature request.]
-
-**Screenshots / Mockups (Optional):**
-[If applicable, include any visual aids, such as screenshots or mockups, to help illustrate your idea.]
+**Additional context**
+Add any other context or screenshots about the feature request here.
