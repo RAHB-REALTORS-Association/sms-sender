@@ -125,8 +125,17 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+# Docs site
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
 # Pyre type checker
 .pyre/
+
 .vscode/settings.json
 .DS_Store
 sms-log.txt
