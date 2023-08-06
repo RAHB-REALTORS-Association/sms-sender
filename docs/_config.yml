@@ -1,0 +1,8 @@
+title: Bulk SMS Sender 📲📩
+description: A Twilio Bulk SMS application written in Python Flask for deployment on PaaS.
+theme: just-the-docs
+
+url: https://rahb-realtors-association.github.io/sms-sender/
+
+aux_links:
+  GitHub Repo: https://github.com/RAHB-REALTORS-Association/sms-sender/
