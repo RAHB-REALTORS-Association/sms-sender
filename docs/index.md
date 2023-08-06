@@ -3,10 +3,11 @@ title: "🏠 Home"
 layout: home
 nav_order: 0
 ---
-<br/><br/>
+<br/>
 <h1 align="center">
 📲📩
 <br/><br/>
+<hr/>
 </h1>
 
 **Bulk SMS Sender** is a web-based application that leverages a Twilio account to send SMS messages in bulk using a CSV file. This file can be uploaded via a web form or fetched from a provided URL. 
