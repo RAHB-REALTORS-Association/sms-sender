@@ -52,10 +52,10 @@ That's it! You can copy and paste the message and Twilio phone number to all oth
 
 Now you just need to save your spreadsheet in the format this app can use and upload it. How to do that might differ a bit from app to app:
 
-* Google Sheets: click on "File", "Download", "Comma-separated values (.csv, current sheet)
-* Excel: click on "File" and then in "Save as". On the "File Format" box select "Comma Separated Values (.csv)"
-* Numbers for Mac: click on "File", "Export to", "CSV" and proceed to save the file
-* OpenOffice: click on "File", "Save as" and set "File type" as "Text CSV (.csv)"
+- **Google Sheets:** click on "File", "Download", "Comma-separated values (.csv, current sheet)
+- **Excel:** click on "File" and then in "Save as". On the "File Format" box select "Comma Separated Values (.csv)"
+- **Numbers for Mac:** click on "File", "Export to", "CSV" and proceed to save the file
+- **OpenOffice:** click on "File", "Save as" and set "File type" as "Text CSV (.csv)"
 
 Once you have you file ready go back to our home page and use the form at the bottom to upload your file and Twilio credentials. That's it! If everything is alright we'll start sending your messages and once we are done we'll show you a full report, so please be patient!
 
