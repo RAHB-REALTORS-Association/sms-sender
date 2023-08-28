@@ -10,7 +10,7 @@ on:
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
+    if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -26,12 +26,8 @@ jobs:
 
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ steps.create_tag.outputs.new_tag }}
-        release_name: Release ${{ steps.create_tag.outputs.new_tag }}
-        body: |
-          Changes in this Release
-          ${{ github.event.pull_request.body }}
+        body: "Changes in this Release\n${{ github.event.pull_request.body }}"
+        tag: ${{ steps.create_tag.outputs.new_tag }}
+        token: ${{ secrets.GITHUB_TOKEN }}
