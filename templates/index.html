@@ -23,27 +23,27 @@
     file. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
     time here and let's get
     started!
-<div class="form-inline" id="upload_form">
-    <form enctype="multipart/form-data" method="post">
-        <div class="mt-15">
-            <input aria-describedby="basic-addon1" class="form-control" name="sid"
-                placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
-        </div>
-        <div class="mt-15">
-            <input aria-describedby="basic-addon1" class="form-control" name="token"
-                placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
-        </div>
-        <div class="mt-15">
-            <input aria-describedby="basic-addon1" class="form-control" name="csv_url"
-                placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
-        </div>
-        <div class="mt-15">
-            <input name="file" type="file" />
-        </div>
-        <div class="mt-15">
-            <input type="submit" value="Send messages" />
-        </div>
-    </form>
-</div>
+    <div class="form-inline" id="upload_form">
+        <form enctype="multipart/form-data" method="post">
+            <div class="mt-15">
+                <input aria-describedby="basic-addon1" class="form-control" name="sid"
+                    placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
+            </div>
+            <div class="mt-15">
+                <input aria-describedby="basic-addon1" class="form-control" name="token"
+                    placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
+            </div>
+            <div class="mt-15">
+                <input aria-describedby="basic-addon1" class="form-control" name="csv_url"
+                    placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
+            </div>
+            <div class="mt-15">
+                <input name="file" type="file" />
+            </div>
+            <div class="mt-15">
+                <input type="submit" value="Send messages" class="btn btn-primary btn-lg" />
+            </div>
+        </form>
+    </div>      
 </p>
 {% endblock %}
