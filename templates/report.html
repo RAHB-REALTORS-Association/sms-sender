@@ -3,29 +3,29 @@
 {% block title %}Report{% endblock %}
 
 {% block content %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Messages sent!</strong>
-      Your messages were successfully sent. Please check status below.
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="report">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Destination</th>
-            <th>Status</th>
-            <th>SID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in number_list %}
-          <tr>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[3] }}</td>
-            <td>{{ item[4] }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Messages sent!</strong>
+        Your messages were successfully sent. Please check status below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="report">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Destination</th>
+              <th>Status</th>
+              <th>SID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in number_list %}
+            <tr>
+              <td>{{ item[1] }}</td>
+              <td>{{ item[3] }}</td>
+              <td>{{ item[4] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
 {% endblock %}    

@@ -3,54 +3,54 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-<div class="alert alert-danger mb-3" role="alert">
-    <div class="d-flex align-items-center">
-        <i class="fas fa-exclamation-triangle me-2"></i>
-        <h3 class="mb-0">First, some important stuff</h3>
-    </div>
-    <ul class="mt-2">
-        <li>This site is not related to nor supported or endorsed by Twilio Inc. in any way</li>
-        <li>This site just provides a simple interface for Twilio's SMS service</li>
-        <li>This site doesn't store your credentials in any form but it's still safer to use tokens. Please check <a
-                href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for
-            instructions on how to do it</li>
-        <li>The source code for this site is available on <a
-                href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">GitHub</a></li>
-    </ul>
-</div>
-<p>
-    Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input
-    file. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
-    time here and let's get
-    started!
-    <div class="form-inline" id="upload_form">
-        <form enctype="multipart/form-data" method="post">
-            <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="sid" id="sid"
-                    placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
+        <div class="alert alert-danger mb-3" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <h3 class="mb-0">First, some important stuff</h3>
             </div>
-            <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="token" id="token"
-                    placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
-            </div>
-            <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
-                    placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
-            </div>
-            <div class="mb-3 d-flex align-items-center justify-content-between">
-                <label for="file-upload" class="btn btn-primary btn-lg">
-                    <input type="file" id="file-upload" name="file" class="d-none" />
-                    Upload CSV
-                    <span class="d-none" id="checkmark"><i class="fas fa-check-circle"></i></span>
-                </label>
-                <button type="submit" class="btn btn-primary btn-lg" id="sendBtn">
-                    Send <i class="fas fa-paper-plane" id="sendIcon"></i>
-                    <div class="spinner-border text-light d-none" role="status" id="spinner">
-                        <span class="visually-hidden">...</span>
+            <ul class="mt-2">
+                <li>This site is not related to nor supported or endorsed by Twilio Inc. in any way</li>
+                <li>This site just provides a simple interface for Twilio's SMS service</li>
+                <li>This site doesn't store your credentials in any form but it's still safer to use tokens. Please check <a
+                        href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for
+                    instructions on how to do it</li>
+                <li>The source code for this site is available on <a
+                        href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+        <p>
+            Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input
+            file. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
+            time here and let's get
+            started!
+            <div class="form-inline" id="upload_form">
+                <form enctype="multipart/form-data" method="post">
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="sid" id="sid"
+                            placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
                     </div>
-                </button>                
-            </div>                     
-        </form>
-    </div>      
-</p>
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="token" id="token"
+                            placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
+                    </div>
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
+                            placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
+                    </div>
+                    <div class="mb-3 d-flex align-items-center justify-content-between">
+                        <label for="file-upload" class="btn btn-primary btn-lg">
+                            <input type="file" id="file-upload" name="file" class="d-none" />
+                            Upload CSV
+                            <span class="d-none" id="checkmark"><i class="fas fa-check-circle"></i></span>
+                        </label>
+                        <button type="submit" class="btn btn-primary btn-lg" id="sendBtn">
+                            Send <i class="fas fa-paper-plane" id="sendIcon"></i>
+                            <div class="spinner-border text-light d-none" role="status" id="spinner">
+                                <span class="visually-hidden">...</span>
+                            </div>
+                        </button>                
+                    </div>                     
+                </form>
+            </div>      
+        </p>
 {% endblock %}
