@@ -37,12 +37,13 @@
                 <input aria-describedby="basic-addon1" class="form-control" name="csv_url"
                     placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
             </div>
-            <div class="mt-15">
-                <input name="file" type="file" />
-            </div>
-            <div class="mb-3">
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+                <label for="file-upload" class="btn btn-primary btn-lg">
+                    <input type="file" id="file-upload" name="file" class="d-none" />
+                    Upload CSV
+                </label>
                 <button type="submit" class="btn btn-primary btn-lg">Send <i class="fas fa-paper-plane"></i></button>
-            </div>            
+            </div>                     
         </form>
     </div>      
 </p>
