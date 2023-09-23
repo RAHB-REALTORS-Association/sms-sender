@@ -26,20 +26,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- Left-aligned nav items go here -->
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item text-end">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('index') }}">
                             <span aria-hidden="true" class="fas fa-paper-plane"></span> Send Messages
                         </a>
                     </li>
-                    <li class="nav-item text-end">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('instructions') }}">
                             <span aria-hidden="true" class="fas fa-info-circle"></span> Instructions
                         </a>
                     </li>
-                    <li class="nav-item text-end">
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
                         <a class="nav-link" href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank" rel="noopener noreferrer">
                             <span aria-hidden="true" class="fab fa-github"></span> GitHub
                         </a>
