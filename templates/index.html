@@ -26,15 +26,15 @@
     <div class="form-inline" id="upload_form">
         <form enctype="multipart/form-data" method="post">
             <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="sid"
+                <input aria-describedby="basic-addon1" class="form-control" name="sid" id="sid"
                     placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
             </div>
             <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="token"
+                <input aria-describedby="basic-addon1" class="form-control" name="token" id="token"
                     placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
             </div>
             <div class="mt-15">
-                <input aria-describedby="basic-addon1" class="form-control" name="csv_url"
+                <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
                     placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
             </div>
             <div class="mb-3 d-flex align-items-center justify-content-between">

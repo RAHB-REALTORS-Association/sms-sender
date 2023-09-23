@@ -56,6 +56,27 @@
         {% endblock %}
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidInput = document.getElementById('sid');
+            const tokenInput = document.getElementById('token');
+            const csvUrlInput = document.getElementById('csv_url');
+            const fileInput = document.getElementById('file-upload');
+            const sendBtn = document.getElementById('sendBtn');
+
+            function toggleSendButton() {
+                // Enable the send button if SID, Token are filled and either File or CSV URL is provided
+                sendBtn.disabled = !(sidInput.value && tokenInput.value && (fileInput.files.length || csvUrlInput.value));
+            }
+
+            // Listen for input changes
+            sidInput.addEventListener('input', toggleSendButton);
+            tokenInput.addEventListener('input', toggleSendButton);
+            csvUrlInput.addEventListener('input', toggleSendButton);
+            fileInput.addEventListener('change', toggleSendButton);
+
+            // Initial toggle
+            toggleSendButton();
+        });
         document.addEventListener("DOMContentLoaded", function() {
             const sendBtn = document.getElementById("sendBtn");
             const sendIcon = document.getElementById("sendIcon");
