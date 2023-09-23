@@ -3,21 +3,19 @@
 {% block title %}Wrong numbers{% endblock %}
 
 {% block content %}
-    <div class="page-header">
-      <h1>Incorrect numbers</h1>
+    <div class="alert alert-danger" role="alert">
+        <h1>Incorrect Numbers</h1>
+        <p>
+            Some of the numbers on your list couldn't be found. Please check them to
+            make sure they are in the correct format, with the Country Code, and try
+            again.
+        </p>
     </div>
-    <div class="card card-body">
-      <p>
-        Some of the numbers on your list couldn't be found. Please check them to
-        make sure they are on the correct format, with the Country Code and try
-        again.
-      </p>
+    <div class="alert alert-danger" role="alert">
+        <ul class="mb-0">
+            {% for number in number_list %}
+            <li>{{ number[1] }}</li>
+            {% endfor %}
+        </ul>
     </div>
-    <div class="report">
-      <ul>
-        {% for number in number_list %}
-        <li>{{ number[1] }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endblock %}    
+{% endblock %}
