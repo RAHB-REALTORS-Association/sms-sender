@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-        <div class="alert alert-danger mb-3" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
             <div class="d-flex align-items-center">
                 <i class="fas fa-exclamation-triangle me-2"></i>
                 <h3 class="mb-0">First, some important stuff</h3>
@@ -17,6 +17,7 @@
                 <li>The source code for this site is available on <a
                         href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">GitHub</a></li>
             </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <p>
             Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input
