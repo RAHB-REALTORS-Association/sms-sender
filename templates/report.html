@@ -3,9 +3,10 @@
 {% block title %}Report{% endblock %}
 
 {% block content %}
-    <div class="alert bg-success">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>Messages sent!</strong>
-      Your messages were succesfully sent. Please check status below
+      Your messages were successfully sent. Please check status below.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <div class="report">
       <table class="table table-striped">
