@@ -14,3 +14,9 @@
   width: 1.25rem;
   height: 1.25rem;
 }
+
+a#dismiss {
+  font-size: 0.85rem;
+  color: #1c1c1c;
+  margin-right: -30px;
+}
