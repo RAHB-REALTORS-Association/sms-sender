@@ -6,24 +6,24 @@
         <div class="alert alert-secondary alert-dismissible fade show mb-3 mt-15" role="alert" id="disclaimer">
             <div class="d-flex align-items-center">
                 <i class="fas fa-info-circle me-2"></i>
-                <h4 class="mb-0">First, some important stuff</h4>
+                <h4 class="mb-0">First, some important notes</h4>
             </div>
             <ul class="mt-2">
-                <li>This site is not related to nor supported or endorsed by Twilio Inc. in any way</li>
-                <li>This site just provides a simple interface for Twilio's SMS service</li>
-                <li>This site doesn't store your credentials in any form but it's still safer to use tokens. Please check <a
+                <li>This application is not related to nor supported or endorsed by Twilio Inc. in any way</li>
+                <li>This application just provides a simple interface for Twilio's SMS service</li>
+                <li>This application doesn't store your credentials in any form. Please check <a
                         href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for
-                    instructions on how to do it</li>
-                <li>The source code for this site is available on <a
-                        href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">GitHub</a></li>
+                    instructions on to create a token</li>
+                <li>The <a href="https://rahb-realtors-association.github.io/sms-sender" target="_blank">documentation</a> and 
+                        <a href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">source code</a> 
+                    for this application is available on GitHub</li>
             </ul>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <p>
             Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input
-            file. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
-            time here and let's get
-            started!
+            file. Please see the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
+            time using the application.
             <div class="form-inline" id="upload_form">
                 <form enctype="multipart/form-data" method="post">
                     <div class="mt-15">
