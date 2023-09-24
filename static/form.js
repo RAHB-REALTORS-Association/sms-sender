@@ -17,7 +17,4 @@ document.addEventListener('DOMContentLoaded', function() {
         sendIcon.classList.add("d-none"); // Hide send icon
         spinner.classList.remove("d-none"); // Show spinner
     });
-
-    // Initial toggle of send button state
-    toggleSendButton();
 });
