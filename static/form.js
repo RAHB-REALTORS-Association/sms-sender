@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('file-upload');
+    const sendBtn = document.getElementById('sendBtn');
+    const checkmarkSpan = document.getElementById('checkmark');
+    const sendIcon = document.getElementById("sendIcon");
+    const spinner = document.getElementById("spinner");
+    
     fileInput.addEventListener('change', function() {
         if (fileInput.files.length > 0) {
             checkmarkSpan.classList.remove('d-none'); // Show checkmark if a file is uploaded.
