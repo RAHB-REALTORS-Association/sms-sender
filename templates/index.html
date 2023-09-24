@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-        <div class="alert alert-secondary alert-dismissible fade show mb-3" role="alert">
+        <div class="alert alert-secondary alert-dismissible fade show mb-3 mt-15" role="alert">
             <div class="d-flex align-items-center">
                 <i class="fas fa-info-circle me-2"></i>
                 <h4 class="mb-0">First, some important stuff</h4>
@@ -38,7 +38,7 @@
                         <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
                             placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
                     </div>
-                    <div class="mb-3 d-flex align-items-center justify-content-between">
+                    <div class="mb-3 mt-15 d-flex align-items-center justify-content-between">
                         <label for="file-upload" class="btn btn-primary btn-lg">
                             <input type="file" id="file-upload" name="file" class="d-none" />
                             Upload CSV
@@ -49,9 +49,49 @@
                             <div class="spinner-border text-light d-none" role="status" id="spinner">
                                 <span class="visually-hidden">...</span>
                             </div>
-                        </button>                
-                    </div>                     
+                        </button>
+                    </div>
                 </form>
-            </div>      
+            </div>
         </p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const sidInput = document.getElementById('sid');
+                const tokenInput = document.getElementById('token');
+                const csvUrlInput = document.getElementById('csv_url');
+                const fileInput = document.getElementById('file-upload');
+                const sendBtn = document.getElementById('sendBtn');
+                const checkmarkSpan = document.getElementById('checkmark');
+                const sendIcon = document.getElementById("sendIcon");
+                const spinner = document.getElementById("spinner");
+        
+                function toggleSendButton() {
+                    const sidHasValueOrPlaceholder = sidInput.value || sidInput.placeholder;
+                    const tokenHasValueOrPlaceholder = tokenInput.value || tokenInput.placeholder;
+                    
+                    sendBtn.disabled = !(sidHasValueOrPlaceholder && tokenHasValueOrPlaceholder && (fileInput.files.length || csvUrlInput.value));
+                }
+        
+                sidInput.addEventListener('input', toggleSendButton);
+                tokenInput.addEventListener('input', toggleSendButton);
+                csvUrlInput.addEventListener('input', toggleSendButton);
+                fileInput.addEventListener('change', toggleSendButton);
+                
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files.length > 0) {
+                        checkmarkSpan.classList.remove('d-none'); // Show checkmark if a file is uploaded.
+                    } else {
+                        checkmarkSpan.classList.add('d-none'); // Hide checkmark if no file is uploaded.
+                    }
+                });
+        
+                sendBtn.addEventListener("click", function() {
+                    sendIcon.classList.add("d-none"); // Hide send icon
+                    spinner.classList.remove("d-none"); // Show spinner
+                });
+        
+                // Initial toggle of send button state
+                toggleSendButton();
+            });
+        </script>
 {% endblock %}
