@@ -56,6 +56,7 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <div class="alert alert-danger" id="error" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
             <h4 class="alert-heading">Error!</h4>
             <ul>
                 {% for message in messages %}
