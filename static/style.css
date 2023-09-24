@@ -20,3 +20,7 @@ a#dismiss {
   color: #41464b;
   margin-right: -30px;
 }
+
+a:hover#dismiss,a:focus#dismiss,a:active#dismiss {
+  color: #000;
+}
