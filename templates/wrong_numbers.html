@@ -3,19 +3,22 @@
 {% block title %}Wrong numbers{% endblock %}
 
 {% block content %}
-    <div class="alert alert-danger mt-15" role="alert">
-        <h1>Incorrect Numbers</h1>
-        <p>
-            Some of the numbers on your list couldn't be found. Please check them to
-            make sure they are in the correct format, with the Country Code, and try
-            again.
-        </p>
-    </div>
-    <div class="alert alert-danger" role="alert">
-        <ul class="mb-0">
-            {% for number in number_list %}
-            <li>{{ number[1] }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+        <div class="alert alert-danger mt-15" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-exclamation-triangle me-2 pb-2"></i>
+                <h4 class="alert-heading">Incorrect numbers!</h4>
+            </div>
+            <p>
+                Some of the numbers on your list couldn't be found. Please check them to
+                make sure they are in the correct format, with the Country Code, and try
+                again.
+            </p>
+        </div>
+        <div class="alert alert-danger mt-15" role="alert">
+            <ul class="mb-0">
+                {% for number in number_list %}
+                <li>{{ number[1] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 {% endblock %}

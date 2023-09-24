@@ -3,29 +3,33 @@
 {% block title %}Report{% endblock %}
 
 {% block content %}
-      <div class="alert alert-success alert-dismissible fade show mt-15" role="alert">
-        <strong>Messages sent!</strong>
-        Your messages were successfully sent. Please check status below.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      <div class="report">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Destination</th>
-              <th>Status</th>
-              <th>SID</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in number_list %}
-            <tr>
-              <td>{{ item[1] }}</td>
-              <td>{{ item[3] }}</td>
-              <td>{{ item[4] }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+        <div class="alert alert-success mt-15" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-check-circle me-2 pb-2"></i>
+                <h4 class="alert-heading">Messages sent!</h4>
+            </div>
+            <p>
+                Your messages were successfully sent. Please check status below.
+            </p>
+        </div>
+        <div class="report mt-50">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Status</th>
+                        <th>SID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in number_list %}
+                    <tr>
+                        <td>{{ item[1] }}</td>
+                        <td>{{ item[3] }}</td>
+                        <td>{{ item[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 {% endblock %}    
