@@ -3,28 +3,33 @@
 {% block title %}Report{% endblock %}
 
 {% block content %}
-    <div class="alert alert-success">
-        <strong>Messages sent!</strong>
-        Your messages were succesfully sent. Please check status below
-    </div>
-    <div class="report">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Destination</th>
-                    <th>Status</th>
-                    <th>SID</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in number_list %}
+        <div class="alert alert-success mb-3 mt-15" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-check-circle me-2 pb-2"></i>
+                <h4>Messages Sent</h4>
+            </div>
+            <p>
+                Your messages were successfully sent. Please check status below.
+            </p>
+        </div>
+        <div class="report mt-50">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Status</th>
+                        <th>SID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in number_list %}
                     <tr>
                         <td>{{ item[1] }}</td>
                         <td>{{ item[3] }}</td>
                         <td>{{ item[4] }}</td>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-{% endblock %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}    

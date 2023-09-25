@@ -3,40 +3,58 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> First, some important stuff</h3>
-        </div>
-        <div class="panel-body">
-            <ul>
-                <li>This site is not related to nor supported or endorsed by Twilio Inc. in any way</li>
-                <li>This site just provides a simple interface for Twilio's SMS service</li>
-                <li>This site doesn't store your credentials in any form but it's still safer to use tokens. Please check <a href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for instructions on how to do it</li>
-                <li>The source code for this site is available on <a href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">GitHub</a></li>
+        <div class="alert alert-secondary alert-dismissible fade show mb-3 mt-15" role="alert" id="disclaimer">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-info-circle me-2"></i>
+                <h4 class="mb-0">Important Notes</h4>
+            </div>
+            <ul class="my-2">
+                <li>This application is not related to nor supported or endorsed by Twilio Inc.</li>
+                <li>This application just provides a simple interface for Twilio's SMS service</li>
+                <li>This application doesn't store your credentials. Please check <a
+                        href="https://www.twilio.com/docs/iam/access-tokens#creating-tokens" target="_blank">this page</a> for
+                    instructions on how to create a token</li>
+                <li>The <a href="https://rahb-realtors-association.github.io/sms-sender" target="_blank">documentation</a> and 
+                        <a href="https://github.com/RAHB-REALTORS-Association/sms-sender" target="_blank">source code</a> 
+                    for this application is available on GitHub</li>
             </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="text-decoration-none ms-auto" id="dismiss">Don't show again</a>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    </div>
-    <p>
-        Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input file. Please head on over to the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first time here and let's get
-        started!
-        <div id="upload_form" class="form-inline">
-            <form method="post" enctype="multipart/form-data">
-                <div class="mt-15">
-                    <input type="text" class="form-control" placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" aria-describedby="basic-addon1" name="sid" size="50">
-                </div>
-                <div class="mt-15">
-                    <input type="password" class="form-control" placeholder="{{ token_placeholder or 'Twilio Token' }}" aria-describedby="basic-addon1" name="token" size="50">
-                </div>
-                <div class="mt-15">
-                    <input type="text" class="form-control" placeholder="{{ csv_url_placeholder or 'CSV URL' }}" aria-describedby="basic-addon1" name="csv_url" size="50">
-                </div>                    
-                <div class="mt-15">
-                    <input type="file" name="file">
-                </div>
-                <div class="mt-15">
-                    <input type="submit" value="Send messages">
-                </div>
-            </form>
-        </div>
-    </p>
+        <p>
+            Welcome to the Bulk SMS Sender. This tool allows you to send bulk messages via Twilio's API from a simple CSV input
+            file. Please see the <a href="{{ url_for('instructions') }}">instructions page</a> if this is your first
+            time using the application.
+            <div class="form-inline" id="upload_form">
+                <form enctype="multipart/form-data" method="post">
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="sid" id="sid"
+                            placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
+                    </div>
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="token" id="token"
+                            placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
+                    </div>
+                    <div class="mt-15">
+                        <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
+                            placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
+                    </div>
+                    <div class="mb-3 mt-15 d-flex align-items-center justify-content-between">
+                        <label for="file-upload" class="btn btn-primary btn-lg">
+                            <input type="file" id="file-upload" name="file" class="d-none" />
+                            Upload CSV
+                            <span class="d-none" id="checkmark"><i class="fas fa-check-circle"></i></span>
+                        </label>
+                        <button type="submit" class="btn btn-primary btn-lg" id="sendBtn">
+                            Send <i class="fas fa-paper-plane" id="sendIcon"></i>
+                            <div class="spinner-border text-light d-none" role="status" id="spinner">
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </p>
+        <script src="{{ url_for('static', filename='form.js') }}"></script>
 {% endblock %}

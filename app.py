@@ -11,19 +11,9 @@ app = Flask(__name__)
 app.config.from_object("settings")
 
 
-@app.route('/sitemap.xml')
-def static_from_root():
-    return send_from_directory(app.static_folder, request.path[1:])
-
-
 @app.route("/instructions")
 def instructions():
     return render_template("instructions.html")
-
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
 
 
 @app.route("/", methods=["GET", "POST"])

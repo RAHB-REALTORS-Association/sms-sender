@@ -3,9 +3,24 @@
 }
 
 .mt-50 {
-    margin-top: 50px !important;
-  }
+  margin-top: 50px !important;
+}
 
-  .mt-15 {
-    margin-top: 15px !important;
-  }
+.mt-15 {
+  margin-top: 15px !important;
+}
+
+.spinner-border {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+a#dismiss {
+  font-size: 0.85rem;
+  color: #41464b;
+  margin-right: -30px;
+}
+
+a:hover#dismiss,a:focus#dismiss,a:active#dismiss {
+  color: #000;
+}
