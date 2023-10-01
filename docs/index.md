@@ -3,7 +3,6 @@ title: "🏠 Home"
 layout: home
 nav_order: 0
 ---
-<br/>
 <p align="center">
 <img src="https://raw.githubusercontent.com/RAHB-REALTORS-Association/sms-sender/master/docs/screenshots/screenshot.png" alt="Screenshot" width="600"/>
 </p>
