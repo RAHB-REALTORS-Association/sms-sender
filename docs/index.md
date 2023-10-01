@@ -4,11 +4,9 @@ layout: home
 nav_order: 0
 ---
 <br/>
-<h1 align="center">
-📲📩
-<br/><br/>
-<hr/>
-</h1>
+<p align="center">
+<img src="https://raw.githubusercontent.com/RAHB-REALTORS-Association/sms-sender/master/docs/screenshots/screenshot.png" alt="Screenshot" width="600"/>
+</p>
 
 **Bulk SMS Sender** is a web-based application that leverages a Twilio account to send SMS messages in bulk using a CSV file. This file can be uploaded via a web form or fetched from a provided URL. 
 
