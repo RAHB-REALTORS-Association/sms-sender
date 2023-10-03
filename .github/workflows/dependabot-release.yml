@@ -10,11 +10,11 @@ on:
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]'
+    if: github.event.pull_request.merged == true && github.event.pull_request.user.login == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Bump version and push tag
       id: create_tag
