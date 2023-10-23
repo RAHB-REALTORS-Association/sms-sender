@@ -1,0 +1,22 @@
+{
+    "name": "Bulk SMS Sender",
+    "short_name": "SMS Sender",
+    "description": "Send SMS messages to multiple recipients using Twilio's API.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#212529",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/static/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+}

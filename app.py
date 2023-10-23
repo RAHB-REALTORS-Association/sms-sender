@@ -15,6 +15,9 @@ app.config.from_object("settings")
 def instructions():
     return render_template("instructions.html")
 
+@app.route('/service-worker.js', methods=['GET'])
+def service_worker():
+    return send_from_directory('static', 'service-worker.js', mimetype='application/javascript')
 
 @app.route("/", methods=["GET", "POST"])
 def index():
