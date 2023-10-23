@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-        <div class="alert alert-secondary alert-dismissible fade show mb-3 mt-15" role="alert" id="disclaimer">
+        <div class="alert alert-secondary alert-dismissible fade show mb-4" role="alert" id="disclaimer">
             <div class="d-flex align-items-center">
                 <i class="fas fa-info-circle me-2"></i>
                 <h4 class="mb-0">Important Notes</h4>
@@ -29,19 +29,19 @@
             time using the application.
             <div class="form-inline" id="upload_form">
                 <form enctype="multipart/form-data" method="post">
-                    <div class="mt-15">
-                        <input aria-describedby="basic-addon1" class="form-control" name="sid" id="sid"
+                    <div class="mt-4">
+                        <input aria-describedby="basic-addon1" class="form-control btn-lg" name="sid" id="sid"
                             placeholder="{{ sid_placeholder or 'Twilio Account SID' }}" size="50" type="text" />
                     </div>
-                    <div class="mt-15">
-                        <input aria-describedby="basic-addon1" class="form-control" name="token" id="token"
+                    <div class="mt-3">
+                        <input aria-describedby="basic-addon1" class="form-control btn-lg" name="token" id="token"
                             placeholder="{{ token_placeholder or 'Twilio Token' }}" size="50" type="password" />
                     </div>
-                    <div class="mt-15">
-                        <input aria-describedby="basic-addon1" class="form-control" name="csv_url" id="csv_url"
+                    <div class="mt-3">
+                        <input aria-describedby="basic-addon1" class="form-control btn-lg" name="csv_url" id="csv_url"
                             placeholder="{{ csv_url_placeholder or 'CSV URL' }}" size="50" type="text" />
                     </div>
-                    <div class="mb-3 mt-15 d-flex align-items-center justify-content-between">
+                    <div class="mt-4 mb-3 d-flex align-items-center justify-content-between">
                         <label for="file-upload" class="btn btn-primary btn-lg">
                             <input type="file" id="file-upload" name="file" class="d-none" />
                             Upload CSV
