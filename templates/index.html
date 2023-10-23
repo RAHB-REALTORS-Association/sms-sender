@@ -44,11 +44,11 @@
                     <div class="mt-4 mb-3 d-flex align-items-center justify-content-between">
                         <label for="file-upload" class="btn btn-primary btn-lg">
                             <input type="file" id="file-upload" name="file" class="d-none" />
-                            Upload CSV
+                                <i class="fas fa-upload"></i> Upload CSV
                             <span class="d-none" id="checkmark"><i class="fas fa-check-circle"></i></span>
                         </label>
                         <button type="submit" class="btn btn-primary btn-lg" id="sendBtn">
-                            Send <i class="fas fa-paper-plane" id="sendIcon"></i>
+                            Send SMS <i class="fas fa-paper-plane" id="sendIcon"></i>
                             <div class="spinner-border text-light d-none" role="status" id="spinner">
                             </div>
                         </button>
@@ -56,5 +56,5 @@
                 </form>
             </div>
         </p>
-        <script src="{{ url_for('static', filename='form.js?v=202310230010') }}"></script>
+        <script src="{{ url_for('static', filename='form.js') }}"></script>
 {% endblock %}
