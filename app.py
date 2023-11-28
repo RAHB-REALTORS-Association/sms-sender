@@ -26,7 +26,7 @@ def index():
         token = request.form.get("token") or settings.TWILIO_TOKEN
         csv_url = request.form.get("csv_url") or settings.CSV_URL
 
-        if sid == "" or token == "":
+        if not sid or not token:
             flash("Twilio ID and token required")
             return redirect(request.url)
 
@@ -38,28 +38,33 @@ def index():
             if not tools.is_valid_url(csv_url):
                 flash("Invalid CSV URL")
                 return redirect(request.url)
-            number_list = tools.get_number_list_from_url(csv_url)
+            try:
+                number_list = tools.get_number_list_from_url(csv_url)
+            except Exception as e:
+                flash("Error fetching data from the CSV URL")
+                return redirect(request.url)
         else:
-            if "file" not in request.files:
+            file = request.files.get("file")
+            if not file or file.filename == "":
                 flash("No file selected")
                 return redirect(request.url)
 
-            file = request.files["file"]
-            if file.filename == "":
-                flash("No file selected")
-                return redirect(request.url)
-
-            if file and tools.allowed_file(file.filename):
+            if tools.allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                file.save(file_path)
 
-                number_list = tools.get_number_list(filename)
+                try:
+                    number_list = tools.get_number_list(file_path)
+                except Exception as e:
+                    flash("Error processing the CSV file")
+                    return redirect(request.url)
+
                 wrong_numbers = tools.check_numbers(number_list, sid, token)
 
                 if wrong_numbers:
-                    with open(settings.LOG_FILE, "a") as log_file:
-                        log_string = f"{datetime.now()} - {len(wrong_numbers)} wrong numbers identified."
-                        log_file.write(f"\n{log_string}")
+                    log_string = f"{datetime.now()} - {len(wrong_numbers)} wrong numbers identified."
+                    app.logger.info(log_string)
                     return render_template("wrong_numbers.html", number_list=wrong_numbers)
 
                 number_list = tools.send_messages(number_list, sid, token)
