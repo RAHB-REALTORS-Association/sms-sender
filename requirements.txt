@@ -11,6 +11,6 @@ PyJWT==2.9.0
 pytz==2024.1
 requests==2.32.3
 six==1.16.0
-twilio==9.2.4
+twilio==9.3.0
 urllib3==2.2.2
 Werkzeug==3.0.4
