@@ -2,7 +2,7 @@ certifi==2026.1.4
 chardet==5.2.0
 click==8.3.1
 Flask==3.1.2
-gunicorn==25.0.3
+gunicorn==25.1.0
 idna==3.11
 itsdangerous==2.2.0
 Jinja2==3.1.6
